@@ -1,0 +1,24 @@
+.content{
+    padding:5px 16px;
+    margin-bottom: 10px;
+}
+.share-container{
+    margin-top: 5px;
+    text-align: center;
+}
+.share-container i{
+    font-size: 2rem;
+}
+.share-container p{
+    margin-top: 0;
+}
+.appbar{
+    background-color: red;
+    color: white;
+    position: fixed !important;
+    width: 100%;
+    top: 0;
+}
+.appbar span{
+    font-size: 1.3rem;
+}

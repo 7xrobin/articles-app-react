@@ -1,0 +1,83 @@
+Index: src/actions.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/actions.js	(revision 5723fbd75214901145333763ecd7bd3a6158be46)
++++ src/actions.js	(date 1541669391000)
+@@ -17,7 +17,7 @@
+ 
+ const successLoad= data => ({
+     type: 'LOAD_ARTICLES_SUCCESS',
+-    data : data.reduce( (lis, article) => {
++    data : Array.from(data).reduce( (lis, article) => {
+         if(article.type === "article"){
+             let newArticle = {
+                 ...article,
+Index: src/serviceWorker.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/serviceWorker.js	(revision 5723fbd75214901145333763ecd7bd3a6158be46)
++++ src/serviceWorker.js	(date 1541678612000)
+@@ -19,6 +19,7 @@
+ );
+ 
+ export function register(config) {
++  //process.env.NODE_ENV === 'production' &&
+   if ('serviceWorker' in navigator) {
+     // The URL constructor is available in all browsers that support SW.
+     const publicUrl = new URL(process.env.PUBLIC_URL, window.location);
+@@ -30,7 +31,7 @@
+     }
+ 
+     window.addEventListener('load', () => {
+-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
++      const swUrl = `${process.env.PUBLIC_URL}/sw-custom.js`;
+ 
+       if (isLocalhost) {
+         // This is running on localhost. Let's check if a service worker still exists or not.
+@@ -43,9 +44,6 @@
+             'This web app is being served cache-first by a service ' +
+               'worker. To learn more, visit https://goo.gl/SC7cgQ'
+           );
+-            navigator.serviceWorker.addEventListener('fetch', function (evt) {
+-                console.log('THe service fetched', evt);
+-            });
+         });
+       } else {
+         // Is not local host. Just register service worker
+@@ -71,9 +69,9 @@
+               console.log('New content is available; please refresh.');
+ 
+               // Execute callback
+-              if (config.onUpdate) {
+-                config.onUpdate(registration);
+-              }
++              // if (config.onUpdate) {
++              //   config.onUpdate(registration);
++              // }
+             } else {
+               // At this point, everything has been precached.
+               // It's the perfect time to display a
+Index: public/sw-custom.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- public/sw-custom.js	(date 1541680790000)
++++ public/sw-custom.js	(date 1541680790000)
+@@ -0,0 +1,11 @@
++
++self.addEventListener('install', function(event) {
++    event.waitUntil(
++        caches.open('v1').then(function(cache) {
++            return cache.addAll([
++                'index.html',
++                '/api/v2/issue/EU/2018-10-25/json'
++            ]);
++        })
++    );
++});
+\ No newline at end of file

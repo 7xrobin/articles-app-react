@@ -1,0 +1,25 @@
+#markets-page-container .session-divider.currency{
+    margin-top: 20%;
+}
+#market-header{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+.market-item{
+    display: flex;
+    justify-content: space-between !important;
+}
+.market-tag{
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: red;
+    padding: 5px;
+    margin-top: 3px;
+    color: white;
+}
+.market-tag div{
+    margin-left: 7px;
+}

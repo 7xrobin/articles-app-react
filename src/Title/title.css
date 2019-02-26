@@ -1,0 +1,17 @@
+.title-container{
+    width: 100%;
+    background-color: #000000db;
+    color: white;
+    padding-bottom: 14px;
+    position: absolute;
+    height: 10vh;
+    top: 28vh;
+}
+.title-container p{
+    padding-left: 16px;
+}
+.title-container .h-top{
+    font-size: 1.7rem;
+    margin: 0;
+    padding-top: 5px;
+}

@@ -1,0 +1,22 @@
+/*Using important to overwrite material ui*/
+.articles-list{
+    padding-top: 0 !important;
+    margin-top: -4px !important;
+}
+.session-divider{
+    color: white;
+    padding: 3px 16px;
+    width: 88%;
+}
+.session-divider.today{
+    background-color: red;
+}
+.session-divider.world{
+    background-color: #8BC34A;
+}
+.session-divider.currency{
+    background-color: #00BCD4;
+}
+a{
+    text-decoration: none;
+}
